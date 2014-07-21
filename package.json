@@ -1,0 +1,27 @@
+{
+  "name": "lightHttpServer",
+  "version": "0.0.0",
+  "description": "simple httpServer to act as traditionnal htdocs of apache",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mbrechet/lightHttpServer.git"
+  },
+  "keywords": [
+    "http",
+    "server",
+    "htdocs",
+    "node",
+    "express"
+  ],
+  "author": "mbrechet",
+  "private": true,
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mbrechet/lightHttpServer/issues"
+  },
+  "homepage": "https://github.com/mbrechet/lightHttpServer",
+  "dependencies": {
+    "express": "^4.6.1"
+  }
+}
