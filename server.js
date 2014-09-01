@@ -12,6 +12,14 @@ var PORT = 8081;
 // remove the referecen of express in header
 app.disable("x-power-by");
 
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*'); // NOT SAFE FOR PRODUCTION
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+    next();
+};
+
 
 // set the static path to n-1 path
 var dirname = __dirname + "/../";
@@ -21,21 +29,10 @@ var index = serveIndex(dirname, {'icons': true});
 // enable statics files
 var staticFiles = serverStatic(dirname);
 
+
+app.use(allowCrossDomain);
 app.use(staticFiles);
 app.use(index);
-
-// //overwride mime types
-// app.use(function(req, res, next){
-//  	if(req.url.lastIndexOf(".m4s")!= -1){
-//  		res.set({"Content-Type":"video/mp4"});
-//  	}
-//  	if(req.url.lastIndexOf(".mpd")!= -1){
-//  		res.set({"Content-Type":"text/xml"});
-//  	}
-//  	// list files
-//  	index(req,res,next);
-//  	//next();
-// });
 
 
 
